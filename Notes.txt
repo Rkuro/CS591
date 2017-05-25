@@ -52,8 +52,13 @@ Fat arrow notation inside an object does NOT work, or classes!
 
 JSON is very related to XML which is very structured data (required vs not required, data types explicit, etc)
 
-
-
+Git Notes:
+Cloning means branching a new version from the master
+(Master)  --->o ------------------------->
+	  | |		^	   |
+ (clone)  | v-----------| (Merge)  |
+	  |			   |
+	  v -----------------------v---> (Production)
 
 
 
