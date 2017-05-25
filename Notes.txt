@@ -1,0 +1,59 @@
+591 Notes:
+
+Transpilers: translates from one version of a language to another or one language to another. i.e. Typescript -> Javascript, Javascript 1.5.8 -> Javascript 1.6
+
+Javascript does not have a built in print function.
+
+Blocks are defined by curly braces
+
+Interpreter puts in semicolons for you AT the moment of interpretation.
+- However there are cases in which this doesn't work properly (i.e. when trying to constrain the source versus declaring a string "use strict" vs "use strict";)
+
+Also does HOISTING:
+Anytime the interpreter finds a variable, it puts it at the top of the file.
+- UNLESS you are using let to define it
+
+SCOPE:
+If you've created a function, you've created a scope
+
+If you don't use the keyword var, the variable becomes GLOBAL and therefore a global variable
+
+Let binds the variable in the block that it is in, var is global?
+
+By putting the whole file in a closure:
+(function() {
+
+...
+
+})()
+
+You can define the scope for the whole file.  This protects against having the same variable names when working on the same project.
+
+
+cb = callback function
+
+Functions defined inside other functions have scope inside of the parent function, even after the function has returned
+
+Coersion: 
+ex.
+1 == "1" is TRUE
+
+Javascript converts types when using ==, but does NOT convert types when using ===.
+
+/endcoersion
+
+In Javascript everything is public! (unless you use private: ...)
+// remember this is called encapsulation (using an interface to separate the client // from the behavior of the object)
+
+When binding a function to an object's data, use this.data to refer to its own data, otherwise it thinks its a variable declared elsewhere.
+
+Fat arrow notation inside an object does NOT work, or classes!
+- If you're only passing 1 argument into a fat arrow function, you don't need the parentheses
+
+JSON is very related to XML which is very structured data (required vs not required, data types explicit, etc)
+
+
+
+
+
+
