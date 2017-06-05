@@ -62,3 +62,84 @@ Cloning means branching a new version from the master
 
 
 
+WEEK 2: BACK END
+
+(function() {
+
+})()
+^ This is called an Immediately Invoked Function Expression (AKA closures or portable scope), this forces variables to have function scope, or they are only defined within the function.
+
+The Javascript Event Loop: Essentially a scheduler!
+
+Call Stack: Records where we are in the program. Function calls get pushed on the call stack.
+
+Task Queue: Asynchronous callback functions that are waiting to execute
+
+Loop: looks at the stack and the task queue.  Pushes things from the task queue to the call stack. Has to wait until the stack is clear until it can push things from the task queue.
+
+QUESTION: How to know what is asynchronous and what isn't? Like why isn't console.log() asynchronous?
+- By adding a callback function, you are essentially making the function asynchronous.  But be careful, this may not always be the case.
+
+Render queue: Browser has a render queue that it wants to output, but it can't render while the call stack is busy!  So synchronous work on the call stack will block the render queue and the user can't see anything!
+
+--- Synchronicity ------
+Promises: A way to provide synchronicity to javascripts inherently asynchronous behavior, uses
+.then() and .catch() along with resolve() and reject() to control the flow of execution.
+
+
+NODE AND EXPRESS:
+
+NODE:
+Server side javascript engine, using Google V8. HTML router using express, application development framework. Node provides a RESTful state transfer - Node is the model in this architecture.  Front end acts as the controller AND the view, and calls the REST api on the back end.
+
+- Allows work to be done on the front end and back end independently (loosely coupled)
+
+Functionality provided by modules.  npm handles dependencies (i.e. if one package requires another, npm gets both) The front-end equivalent is yarn.
+
+Cons: Lots of packages have dependencies that are irrelevant to what you are doing and may just take up space/overhead.  Node automatically grabs the newest version - this is really bad for production because the newest version might fuck up your code. If the package is removed for any reason, you are screwed (unless you load it locally).
+
+
+NPM:
+npm install - installs the dependencies inside the package.json file
+
+
+Single page applications: trying to avoid refreshes. Ideally we want a dynamic page without refreshing.
+
+
+function(req,res,next)
+Everytime a request comes in, the information is exposed on the req parameter
+
+next() is the way the middlware is hooked together.  i.e. app.use() is found in the order that they appear. So next() goes to the next appropriate middleware (using pattern matching)
+
+MODULES:
+
+In Javascript a module is a file!
+
+
+CONFIG files:
+Used to differ betweeen production, staging, and development environments.
+
+
+MONGO:
+NOSQL!
+
+Relational DB = built on relations between the data inside tables.
+pros - very good at storing structured data
+- No duplication (less storage)
+- 
+cons- not scalable
+
+
+Non-relational DBs = built using documents
+AKA: noSQL
+Trade simplicity for performance
+Idea: Store all of the necessary data for a record into a single object
+
+
+
+
+
+
+
+
+
