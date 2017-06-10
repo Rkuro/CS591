@@ -4,3 +4,7 @@ class-demo-node/
 MusicHelper/
 myApp/
 node_modules/
+config/
+meanapp/
+SpotifyAuth/
+pubsub/

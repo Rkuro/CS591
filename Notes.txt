@@ -136,7 +136,28 @@ Trade simplicity for performance
 Idea: Store all of the necessary data for a record into a single object
 
 
+Data Access Layer:
+1. "CRUD" Create, Read, Update, Delete
+2. Translate from CRUD commands into Database Specific Language
 
+- Possibly have json or xml layer between the APP and the DAL so that the application is only speaking json back and forth
+
+Application -> Data Access Layer (DAL) -> Database
+
+- This allows to switch databases relatively easily without rewriting the app
+
+Impedance mismatch -> The data types in the DB don't necessarily match the way we want to use them in the app
+
+ORM -> Object-Relational Mapping, basically a way to take RDB table info and store it in an object
+
+ODM -> Object-Document Management:
+Schema: What fields are there, what type, whether required or not, etc. for a particular document type
+- We do this with Mongoose!
+
+CREATE - obj.save(), db.<collection>.insert()
+READ -  db.<collection>.find({key:value})
+UPDATE - db.<collection>.findandupdate()
+DELETE - db.<collection>.remove()
 
 
 
