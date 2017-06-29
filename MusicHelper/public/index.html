@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Latest compiled and minified jQuery -->
+    <script src="https://code.jquery.com/jquery-2.2.3.js"
+            integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"
+          integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+            integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+            crossorigin="anonymous"></script>
+    <!-- Angular (minified) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular-cookies.js"></script>
+
+
+    <!--Controllers for this page/app -->
+    <script src="javascripts/controllers.js"></script>
+    <!-- Local styles -->
+    <link rel="stylesheet" href="stylesheets/style.css">
+
+</head>
+
+<body ng-app="musichelper">
+<div ng-controller="musichelper_ctrl" ng-init="initApp()" class="container-fluid">
+    <h2>{{h2message}} {{name}}</h2>
+    <div>
+        <div ng-hide="authorized">
+            <br/>
+            <button type="submit" class="btn btn-primary" ng-click="doSpotifyAuth()">Log in with Spotify</button>
+        </div>
+        <div ng-show="authorized">
+            <button type="submit" class="btn btn-info" ng-click="getEvents()">Get Events</button>
+            <br/>
+            <!--<button type="submit" class="btn btn-warning" ng-click="doSpotifyLogout()">Log out</button>-->
+        </div>
+
+        <br/>
+        <div class="col-xs-12" style="height:30px;"></div>
+
+
+
+        <div ng-show="showEvents" class="well col-lg-12">
+            <ul class="list-group">
+                <li class="list-group-item largeText" ng-model="artists" ng-repeat="artist in artists">{{artist.artist}}
+                    <button ng-click="collapse = !collapse">Show events</button>
+                    <div ng-show="collapse == false" collapse="collapse" class="well">
+                        <ul class="list-group">
+                            <li class="list-group-item" ng-repeat="event in artist.events">
+
+                                <p><strong>{{event.name}}</strong></p>
+                                <br/>
+                                <p>Date: {{event.dates.start.localTime}} {{event.dates.start.localDate}}
+                                    <!--{{event.dates.start.localDate}} {{event.dates.start.localTime}}-->
+                                <br/>
+                                    Location: {{event._embedded.venues[0].city.name}}, {{event._embedded.venues[0].country.name}}
+                                </p>
+                                <br/>
+                                <p>Sales Start: {{event.sales.public.startDateTime}}
+                                <br/>
+                                    Sales End: {{event.sales.public.endDateTime}}
+                                <br/>
+                                </p>
+                                <br/>
+                                <a href = "{{event.url}}" target="_blank">
+                                    <button class="btn btn-success">
+                                        Go To Event
+                                    </button>
+                                </a>
+
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+
+        <!--<span ng-show="display"> {{user.UID}} {{user.department}}</span>-->
+        <!--<button class="btn btn-sm pull-right btn-danger" ng-click="deleteUser(user._id);">-->
+            <!--<span class="glyphicon glyphicon-trash"></span>-->
+        <!--</button>-->
+        <!--<button class="btn btn-sm pull-right btn-info" ng-click="showInfo(user._id);">-->
+            <!--<span class="glyphicon glyphicon-search"></span>-->
+        <!--</button>-->
+        <!--<button class="btn btn-sm pull-right btn-warning" ng-click="setUserUpdate(user);">-->
+            <!--<span class="glyphicon glyphicon-hand-up"></span>-->
+        <!--</button>-->
+    </div>
+
+</div>
+
+</body>
+
+</html>

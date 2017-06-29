@@ -161,6 +161,23 @@ DELETE - db.<collection>.remove()
 
 
 
+Angular:
+
+$scope is the object for the entire application
+
+{{inputText}}  => $scope.inputText
+
+ng-app => app that is used, and defines the module within the html tag that it is assigned to
+- ties to angular.module('whatever is put in ng-app', ['ngRoute','ngCookies'])
+
+ng-cntroller => same thing but for the controller 
+
+
+Javascript dependency injection:
+- Passing in a function as a parameter to another function
+i.e.:
+let calc = (left,right,func) => func(left,right)
+
 
 
 
